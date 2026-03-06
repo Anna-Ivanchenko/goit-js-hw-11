@@ -20,18 +20,18 @@ form.addEventListener('submit', event => {
     getImagesByQuery(query)
         .then(data => {
             if (data.hits.length === 0) {
-                iziToast.error({
-                    title: 'Error',
+                iziToast.error({                    
                     message: 'Sorry, there are no images matching your search query. Please try again!',
+                    position: 'topRight'
                 });
             } else {
                 createGallery(data.hits);
             }
         })
         .catch(() => {
-            iziToast.error({
-                title: 'Error',
+            iziToast.error({                
                 message: 'An error occurred while fetching images. Please try again later.',
+                position: 'topRight'
             });
         })
         .finally(() => {
